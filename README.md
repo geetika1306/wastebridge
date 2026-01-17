@@ -15,14 +15,7 @@
 - **📊 High Accuracy**: ~85% validation accuracy
 - **⚡ Real-time Processing**: Instant classification with detailed insights
 - **🌐 Web Interface**: User-friendly Streamlit dashboard
-- **📱 Mobile Responsive**: Works on all devices
-
-## 📸 Screenshots
-
-| Upload Interface | Classification Results | Industry Mapping |
-|-----------------|-----------------------|------------------|
-| ![Upload](https://via.placeholder.com/400x250/2E8B57/FFFFFF?text=Upload+Image) | ![Results](https://via.placeholder.com/400x250/4CAF50/FFFFFF?text=Classification) | ![Industry](https://via.placeholder.com/400x250/2196F3/FFFFFF?text=Industry+Mapping) |
-
+- **📱 Mobile Responsive**: Works on all devices.
 ## 🚀 Quick Start
 
 ### Prerequisites

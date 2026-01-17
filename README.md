@@ -21,10 +21,3 @@
 ### Prerequisites
 - Python 3.8 or higher
 - pip package manager
-
-### Installation
-
-1. **Clone or download the project**
-```bash
-git clone https://github.com/yourusername/waste-to-industry.git
-cd waste-to-industry

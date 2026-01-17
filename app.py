@@ -102,4 +102,4 @@ if uploaded_file is not None:
 
 # Footer
 st.markdown("---")
-st.caption("Built with TensorFlow & Streamlit | Waste Classification Model") Streamlit | ♻️ Waste Classification Model")
+st.caption("Built with TensorFlow & Streamlit | ♻️ Waste Classification Model")

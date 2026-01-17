@@ -1,32 +1,31 @@
-# app.py - Complete Streamlit App
+# app.py - COMPLETE WORKING CODE
 import streamlit as st
 import numpy as np
 import tensorflow as tf
 from PIL import Image
-import os
 
-# Page config
+# Page configuration
 st.set_page_config(
-    page_title="♻️ Waste Classifier",
+    page_title="♻️ AI Waste Classifier",
     page_icon="♻️",
     layout="centered"
 )
 
-# Custom styling
+# Custom CSS
 st.markdown("""
 <style>
     .main-header {
-        font-size: 2.5rem;
-        color: #2E8B57;
         text-align: center;
-        margin-bottom: 1rem;
+        color: #2E8B57;
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
     }
-    .result-box {
-        padding: 20px;
-        background: #f8f9fa;
+    .prediction-box {
+        background: #f8fff8;
+        padding: 1.5rem;
         border-radius: 10px;
         border-left: 5px solid #2E8B57;
-        margin: 20px 0;
+        margin: 1.5rem 0;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -37,14 +36,6 @@ st.markdown("### Upload an image to classify recyclable waste")
 
 # Class information
 CLASSES = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
-RECYCLING_TIPS = {
-    'cardboard': '📦 Flatten boxes and remove tape',
-    'glass': '🥛 Rinse and remove caps/lids',
-    'metal': '🥫 Rinse cans and remove labels',
-    'paper': '📄 Keep dry and remove staples',
-    'plastic': '🧴 Check recycling number (1-7)',
-    'trash': '🚮 May not be recyclable - check local guidelines'
-}
 
 @st.cache_resource
 def load_model():
@@ -60,11 +51,7 @@ def load_model():
 model = load_model()
 
 # File uploader
-uploaded_file = st.file_uploader(
-    "Choose an image...",
-    type=['jpg', 'jpeg', 'png'],
-    help="Upload an image of waste material"
-)
+uploaded_file = st.file_uploader("Choose an image...", type=['jpg', 'jpeg', 'png'])
 
 if uploaded_file is not None:
     # Display image
@@ -94,14 +81,11 @@ if uploaded_file is not None:
                 confidence = predictions[predicted_idx] * 100
             
             # Display results
-            st.markdown('<div class="result-box">', unsafe_allow_html=True)
+            st.markdown('<div class="prediction-box">', unsafe_allow_html=True)
             st.success(f"### 🏷️ {predicted_class.upper()}")
             st.metric("Confidence", f"{confidence:.1f}%")
             
-            # Recycling tip
-            st.info(f"**♻️ Tip:** {RECYCLING_TIPS[predicted_class]}")
-            
-            # Check if recyclable
+            # Recycling info
             if predicted_class != 'trash':
                 st.success("✅ This item appears to be recyclable!")
             else:
@@ -116,32 +100,6 @@ if uploaded_file is not None:
         else:
             st.error("Model not loaded. Please check if 'waste_classifier_6class.h5' is in the same folder.")
 
-# Sidebar info
-with st.sidebar:
-    st.header("ℹ️ About")
-    st.write("""
-    **AI Waste Classifier**
-    
-    Classifies waste into 6 categories:
-    - ♻️ **Recyclable:**
-      - Cardboard
-      - Glass  
-      - Metal
-      - Paper
-      - Plastic
-    - 🗑️ **Non-recyclable:**
-      - Trash
-    """)
-    
-    st.header("📸 Tips")
-    st.write("""
-    For best results:
-    1. Clear, well-lit images
-    2. Single item per image
-    3. Plain background
-    4. Avoid blurry photos
-    """)
-
 # Footer
 st.markdown("---")
-st.caption("Built with TensorFlow & Streamlit | ♻️ Waste Classification Model")
+st.caption("Built with TensorFlow & Streamlit | Waste Classification Model") Streamlit | ♻️ Waste Classification Model")
